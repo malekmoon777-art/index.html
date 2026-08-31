@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -12,6 +11,10 @@
 content="صدقة جارية عن صالح الفهري رحمه الله - أدعية وأذكار وقرآن">
 
 <title>صالح الفهري رحمه الله</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -31,24 +34,19 @@ html{
 }
 
 body{
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
+    font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;
 
-    background:#071b17;
-    color:#f8f5eb;
+    background:var(--bg);
+    color:var(--text);
 
     min-height:100vh;
+    min-height:100dvh;
 
     overflow-x:hidden;
 
-    padding-bottom:82px;
+    padding-bottom:86px;
 
-    transition:
-        background .3s,
-        color .3s;
+    transition:background .3s,color .3s;
 }
 
 /* =========================================================
@@ -75,32 +73,28 @@ body{
 
     --danger:#b96b6b;
 
-    --shadow:
-        0 12px 35px rgba(0,0,0,.22);
+    --shadow:0 12px 35px rgba(0,0,0,.22);
 }
 
 body.light{
 
-    --bg:#f5f1e7;
+    --bg:#f6f2e6;
     --bg2:#ffffff;
 
     --card:#ffffff;
-    --card2:#f1ede2;
+    --card2:#f1ede0;
 
-    --gold:#9d762b;
-    --gold-light:#8a6827;
+    --gold:#8a6318;
+    --gold-light:#6e4e12;
 
-    --text:#18251f;
-    --muted:#68766f;
+    --text:#141b17;
+    --muted:#5a6862;
 
-    --border:rgba(0,0,0,.08);
+    --border:rgba(0,0,0,.09);
 
-    --green:#286f58;
+    --green:#1f6a52;
 
-    --shadow:
-        0 10px 30px rgba(0,0,0,.08);
-
-    background:var(--bg);
+    --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 /* =========================================================
@@ -117,19 +111,18 @@ body.light{
 
     height:64px;
 
-    z-index:1000;
+    z-index:1200;
 
     background:rgba(7,27,23,.82);
 
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:
-        1px solid var(--border);
+    border-bottom:1px solid var(--border);
 }
 
 body.light .header{
-    background:rgba(255,255,255,.86);
+    background:rgba(255,255,255,.88);
 }
 
 .header-inner{
@@ -140,8 +133,7 @@ body.light .header{
 
     margin:auto;
 
-    padding:
-        0 16px;
+    padding:0 12px;
 
     display:flex;
 
@@ -150,17 +142,30 @@ body.light .header{
     justify-content:space-between;
 }
 
+.header-start{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
 .logo{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:bold;
 
     color:var(--gold-light);
 
     white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
 
 .header-actions{
@@ -177,10 +182,11 @@ body.light .header{
     width:39px;
     height:39px;
 
+    flex-shrink:0;
+
     border-radius:50%;
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     background:var(--card);
 
@@ -189,6 +195,217 @@ body.light .header{
     cursor:pointer;
 
     font-size:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.header-btn:active{
+    transform:scale(.92);
+}
+
+/* =========================================================
+   SIDE DRAWER
+========================================================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1800;
+
+    background:rgba(0,0,0,.5);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .28s ease;
+}
+
+.overlay.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+.drawer{
+
+    position:fixed;
+
+    top:0;
+    right:0;
+
+    height:100%;
+    height:100dvh;
+
+    width:min(80%,320px);
+
+    z-index:1900;
+
+    background:var(--bg2);
+
+    border-left:1px solid var(--border);
+
+    box-shadow:-18px 0 40px rgba(0,0,0,.28);
+
+    transform:translateX(100%);
+
+    transition:transform .32s cubic-bezier(.22,.9,.3,1);
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding-top:env(safe-area-inset-top);
+}
+
+.drawer.open{
+    transform:translateX(0);
+}
+
+.drawer-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 18px 14px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.drawer-title{
+
+    font-family:"Amiri",Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:19px;
+}
+
+.drawer-close{
+
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+.drawer-list{
+
+    list-style:none;
+
+    padding:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    overflow-y:auto;
+}
+
+.drawer-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border-radius:14px;
+
+    border:1px solid transparent;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    text-align:right;
+
+    cursor:pointer;
+
+    transition:.18s;
+}
+
+.drawer-link:active{
+    transform:scale(.98);
+}
+
+.drawer-link.active{
+
+    background:rgba(216,181,106,.12);
+
+    border-color:rgba(216,181,106,.25);
+
+    color:var(--gold-light);
+}
+
+.drawer-icon{
+
+    width:34px;
+    height:34px;
+
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--card);
+
+    font-size:16px;
+}
+
+.drawer-foot{
+
+    margin-top:auto;
+
+    padding:16px 18px calc(18px + env(safe-area-inset-bottom));
+
+    border-top:1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    text-align:center;
+
+    line-height:1.9;
 }
 
 /* =========================================================
@@ -212,11 +429,8 @@ main{
 
 .hero{
 
-    min-height:
-        calc(100vh - 64px);
-
-    min-height:
-        calc(100svh - 64px);
+    min-height:calc(100vh - 64px);
+    min-height:calc(100dvh - 64px);
 
     position:relative;
 
@@ -230,8 +444,7 @@ main{
 
     text-align:center;
 
-    padding:
-        55px 20px 50px;
+    padding:50px 20px 46px;
 }
 
 .hero-bg{
@@ -254,10 +467,9 @@ main{
 
     border-radius:50%;
 
-    background:
-        rgba(216,181,106,.08);
+    background:rgba(216,181,106,.08);
 
-    filter:blur(35px);
+    filter:blur(40px);
 }
 
 .glow.one{
@@ -269,8 +481,7 @@ main{
     bottom:-130px;
     right:-90px;
 
-    background:
-        rgba(36,107,85,.12);
+    background:rgba(36,107,85,.14);
 }
 
 .stars{
@@ -279,40 +490,41 @@ main{
 
     inset:0;
 
-    opacity:.4;
+    opacity:.45;
 
-    background-image:
+    background-image:radial-gradient(circle,rgba(255,255,255,.85) 1px,transparent 1.5px);
 
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.8) 1px,
-            transparent 1.5px
-        );
+    background-size:90px 90px;
 
-    background-size:
-        90px 90px;
+    background-position:20px 15px;
 
-    background-position:
-        20px 15px;
+    animation:twinkle 6s ease-in-out infinite;
+}
+
+body.light .stars{
+    display:none;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.45;}
+    50%{opacity:.2;}
 }
 
 .moon{
 
     position:absolute;
 
-    width:125px;
-    height:125px;
+    width:120px;
+    height:120px;
 
     border-radius:50%;
 
-    background:
-        var(--gold-light);
+    background:var(--gold-light);
 
     top:11%;
     left:7%;
 
-    box-shadow:
-        0 0 80px rgba(240,218,160,.14);
+    box-shadow:0 0 80px rgba(240,218,160,.16);
 }
 
 .moon:after{
@@ -321,15 +533,19 @@ main{
 
     position:absolute;
 
-    width:116px;
-    height:116px;
+    width:111px;
+    height:111px;
 
     border-radius:50%;
 
     background:var(--bg);
 
     top:-8px;
-    left:28px;
+    left:27px;
+}
+
+body.light .moon{
+    opacity:.5;
 }
 
 .hero-content{
@@ -340,7 +556,7 @@ main{
 
     width:100%;
 
-    max-width:760px;
+    max-width:720px;
 }
 
 .hero-badge{
@@ -351,78 +567,104 @@ main{
 
     gap:7px;
 
-    padding:
-        7px 15px;
+    padding:7px 15px;
 
-    border:
-        1px solid rgba(216,181,106,.25);
+    border:1px solid rgba(216,181,106,.28);
 
     border-radius:100px;
 
-    background:
-        rgba(216,181,106,.055);
+    background:rgba(216,181,106,.06);
 
     color:var(--gold-light);
 
     font-size:13px;
 
-    margin-bottom:20px;
+    font-weight:600;
+
+    margin-bottom:22px;
 }
 
 .hero h1{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     color:var(--gold-light);
 
-    font-size:
-        clamp(48px,14vw,92px);
+    font-size:clamp(44px,13vw,80px);
 
-    line-height:1.1;
+    line-height:1.15;
 
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 
 .hero h2{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
-    font-size:
-        clamp(25px,7vw,40px);
+    font-size:clamp(22px,6vw,32px);
 
     font-weight:400;
 
-    margin-bottom:17px;
+    color:var(--text);
+
+    margin-bottom:20px;
 }
 
 .hero-text{
 
     color:var(--muted);
 
-    max-width:620px;
+    max-width:600px;
 
     margin:auto;
 
     font-size:15px;
 
-    line-height:2;
+    line-height:2.1;
+}
+
+.hero-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:22px auto;
+
+    color:var(--gold);
+
+    font-size:13px;
+}
+
+.hero-divider:before,
+.hero-divider:after{
+
+    content:"";
+
+    height:1px;
+
+    width:44px;
+
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
 
 .hero-dua{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     color:var(--gold-light);
 
-    font-size:
-        clamp(21px,5.5vw,30px);
+    font-size:clamp(20px,5vw,28px);
 
-    line-height:2;
+    line-height:2.15;
 
-    padding:
-        22px 7px;
+    padding:6px 6px 26px;
 
-    max-width:760px;
+    max-width:740px;
 
     margin:auto;
 }
@@ -444,24 +686,17 @@ main{
 
 .btn{
 
-    min-height:47px;
+    min-height:48px;
 
-    padding:
-        10px 21px;
+    padding:10px 22px;
 
     border-radius:14px;
 
-    border:
-        1px solid rgba(216,181,106,.28);
+    border:1px solid rgba(216,181,106,.28);
 
-    background:
-        linear-gradient(
-            135deg,
-            #c39d51,
-            #eed58e
-        );
+    background:linear-gradient(135deg,#c39d51,#eed58e);
 
-    color:#172119;
+    color:#1b2620;
 
     font-weight:800;
 
@@ -478,6 +713,8 @@ main{
     cursor:pointer;
 
     font-family:inherit;
+
+    font-size:14.5px;
 
     transition:.2s;
 }
@@ -501,8 +738,9 @@ main{
 
 .section{
 
-    padding:
-        70px 17px 20px;
+    padding:66px 17px 20px;
+
+    scroll-margin-top:70px;
 }
 
 .section-header{
@@ -516,23 +754,22 @@ main{
 
     color:var(--gold);
 
-    font-size:12px;
+    font-size:12.5px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    letter-spacing:.3px;
+    letter-spacing:.2px;
 
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 .section-title{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     color:var(--gold-light);
 
-    font-size:
-        clamp(31px,8vw,43px);
+    font-size:clamp(29px,7.5vw,40px);
 
     line-height:1.4;
 }
@@ -543,7 +780,7 @@ main{
 
     font-size:14px;
 
-    margin-top:6px;
+    margin-top:7px;
 }
 
 /* =========================================================
@@ -552,44 +789,49 @@ main{
 
 .feature-dua{
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(216,181,106,.10),
-            rgba(36,107,85,.10)
-        );
+    position:relative;
 
-    border:
-        1px solid rgba(216,181,106,.20);
+    background:linear-gradient(145deg,rgba(216,181,106,.10),rgba(36,107,85,.10));
 
-    border-radius:25px;
+    border:1px solid rgba(216,181,106,.22);
 
-    padding:
-        25px 19px;
+    border-radius:26px;
+
+    padding:28px 20px;
 
     text-align:center;
 
     margin-bottom:20px;
 
     box-shadow:var(--shadow);
+
+    overflow:hidden;
 }
 
 .feature-dua-icon{
 
-    font-size:35px;
+    font-size:32px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .feature-dua-text{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     color:var(--gold-light);
 
     font-size:22px;
 
-    line-height:2;
+    line-height:2.1;
+
+    min-height:88px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 .feature-actions{
@@ -609,13 +851,11 @@ main{
 
     min-height:40px;
 
-    padding:
-        8px 14px;
+    padding:8px 14px;
 
     border-radius:11px;
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     background:var(--card);
 
@@ -624,6 +864,12 @@ main{
     cursor:pointer;
 
     font-family:inherit;
+
+    font-size:13.5px;
+}
+
+.small-btn:active{
+    transform:scale(.96);
 }
 
 /* =========================================================
@@ -634,8 +880,7 @@ main{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:14px;
 }
@@ -644,8 +889,7 @@ main{
 
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:19px;
 
@@ -668,12 +912,12 @@ main{
 
     margin-bottom:8px;
 
-    font-weight:bold;
+    font-weight:700;
 }
 
 .dua-text{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     font-size:21px;
 
@@ -686,8 +930,7 @@ main{
 
     margin-top:13px;
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     background:transparent;
 
@@ -695,12 +938,13 @@ main{
 
     border-radius:9px;
 
-    padding:
-        6px 11px;
+    padding:6px 11px;
 
     cursor:pointer;
 
     font-family:inherit;
+
+    font-size:13px;
 }
 
 /* =========================================================
@@ -720,8 +964,7 @@ main{
 
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:18px;
 
@@ -761,13 +1004,83 @@ main{
 
 .zikr-text{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
     font-size:22px;
 
     line-height:2;
 
     color:var(--text);
+}
+
+/* =========================================================
+   QURAN
+========================================================= */
+
+.about-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:28px 21px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.about-symbol{
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(216,181,106,.09);
+
+    border:1px solid rgba(216,181,106,.18);
+
+    font-size:30px;
+}
+
+.about-card p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:2.1;
+
+    margin-bottom:13px;
+}
+
+.about-card strong{
+
+    color:var(--gold-light);
+}
+
+.quran-verse{
+
+    font-family:"Amiri",Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:24px;
+
+    line-height:2.2;
+
+    margin-bottom:20px;
 }
 
 /* =========================================================
@@ -791,8 +1104,7 @@ main{
 
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:28px;
 
@@ -812,51 +1124,44 @@ main{
 
     color:var(--gold-light);
 
-    font-size:75px;
+    font-size:70px;
 
     line-height:1.2;
 
     font-weight:800;
 
-    margin:
-        12px 0 18px;
+    margin:12px 0 18px;
+
+    font-family:"Amiri",Georgia,serif;
 }
 
 .counter-button{
 
-    width:180px;
-    height:180px;
+    width:176px;
+    height:176px;
 
     border-radius:50%;
 
-    border:
-        8px solid rgba(216,181,106,.27);
+    border:8px solid rgba(216,181,106,.28);
 
-    background:
-        radial-gradient(
-            circle,
-            var(--card2),
-            var(--card)
-        );
+    background:radial-gradient(circle,var(--card2),var(--card));
 
     color:var(--gold-light);
 
-    font-family:inherit;
+    font-family:"Amiri",Georgia,serif;
 
-    font-size:28px;
+    font-size:27px;
 
     font-weight:bold;
 
     cursor:pointer;
 
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.22);
+    box-shadow:0 15px 45px rgba(0,0,0,.22);
 
     transition:.1s;
 }
 
 .counter-button:active{
-
     transform:scale(.93);
 }
 
@@ -874,68 +1179,6 @@ main{
 }
 
 /* =========================================================
-   ABOUT
-========================================================= */
-
-.about-card{
-
-    background:var(--card);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:25px;
-
-    padding:
-        28px 21px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-}
-
-.about-symbol{
-
-    width:72px;
-    height:72px;
-
-    margin:
-        0 auto 18px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:
-        rgba(216,181,106,.09);
-
-    border:
-        1px solid rgba(216,181,106,.18);
-
-    font-size:32px;
-}
-
-.about-card p{
-
-    color:var(--muted);
-
-    font-size:15px;
-
-    line-height:2.1;
-
-    margin-bottom:13px;
-}
-
-.about-card strong{
-
-    color:var(--gold-light);
-}
-
-/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -943,8 +1186,7 @@ footer{
 
     text-align:center;
 
-    padding:
-        55px 20px 30px;
+    padding:55px 20px 30px;
 
     color:var(--muted);
 
@@ -953,9 +1195,9 @@ footer{
 
 .footer-name{
 
-    font-family:Georgia,serif;
+    font-family:"Amiri",Georgia,serif;
 
-    font-size:23px;
+    font-size:22px;
 
     color:var(--gold-light);
 
@@ -975,22 +1217,18 @@ footer{
     right:0;
     left:0;
 
-    height:72px;
+    height:74px;
 
-    padding:
-        6px 8px
-        env(safe-area-inset-bottom);
+    padding:6px 8px env(safe-area-inset-bottom);
 
-    z-index:1500;
+    z-index:1100;
 
-    background:
-        rgba(7,27,23,.92);
+    background:rgba(7,27,23,.92);
 
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
 
-    border-top:
-        1px solid var(--border);
+    border-top:1px solid var(--border);
 
     display:flex;
 
@@ -998,9 +1236,7 @@ footer{
 }
 
 body.light .bottom-nav{
-
-    background:
-        rgba(255,255,255,.93);
+    background:rgba(255,255,255,.94);
 }
 
 .bottom-inner{
@@ -1011,8 +1247,7 @@ body.light .bottom-nav{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(5,1fr);
+    grid-template-columns:repeat(5,1fr);
 
     gap:2px;
 }
@@ -1046,13 +1281,12 @@ body.light .bottom-nav{
 
 .bottom-icon{
 
-    font-size:20px;
+    font-size:19px;
 
     line-height:1;
 }
 
 .bottom-item.active{
-
     color:var(--gold-light);
 }
 
@@ -1068,26 +1302,21 @@ body.light .bottom-nav{
 
     right:50%;
 
-    bottom:92px;
+    bottom:94px;
 
-    transform:
-        translateX(50%)
-        translateY(20px);
+    transform:translateX(50%) translateY(20px);
 
-    width:
-        min(90%,430px);
+    width:min(90%,430px);
 
     background:#102f27;
 
     color:white;
 
-    border:
-        1px solid rgba(216,181,106,.25);
+    border:1px solid rgba(216,181,106,.25);
 
     border-radius:15px;
 
-    padding:
-        12px 16px;
+    padding:12px 16px;
 
     text-align:center;
 
@@ -1106,9 +1335,7 @@ body.light .bottom-nav{
 
     opacity:1;
 
-    transform:
-        translateX(50%)
-        translateY(0);
+    transform:translateX(50%) translateY(0);
 }
 
 /* =========================================================
@@ -1118,75 +1345,53 @@ body.light .bottom-nav{
 @media(max-width:700px){
 
     .dua-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .dua-card{
-
         padding:18px;
-
     }
 
     .dua-text{
-
         font-size:20px;
-
     }
 
     .section{
-
-        padding-top:62px;
-
+        padding-top:58px;
     }
 
+    .logo{
+        font-size:16px;
+        max-width:150px;
+    }
 }
 
 @media(min-width:701px){
 
     body{
-
         padding-bottom:0;
-
     }
 
     .bottom-nav{
-
         display:none;
-
     }
-
 }
 
 @media(max-width:360px){
 
-    .logo{
-
-        font-size:16px;
-
-    }
-
     .hero{
-
         padding-left:15px;
         padding-right:15px;
-
     }
 
     .hero-dua{
-
-        font-size:20px;
-
+        font-size:19px;
     }
 
     .counter-button{
-
-        width:160px;
-        height:160px;
-
+        width:156px;
+        height:156px;
     }
-
 }
 
 /* =========================================================
@@ -1201,8 +1406,8 @@ body.light .bottom-nav{
 
     *{
         transition:none!important;
+        animation:none!important;
     }
-
 }
 
 </style>
@@ -1220,8 +1425,21 @@ body.light .bottom-nav{
 
     <div class="header-inner">
 
-        <div class="logo">
-            صالح الفهري رحمه الله
+        <div class="header-start">
+
+            <button
+                class="header-btn"
+                onclick="openDrawer()"
+                aria-label="القائمة">
+
+                ☰
+
+            </button>
+
+            <div class="logo">
+                صالح الفهري رحمه الله
+            </div>
+
         </div>
 
         <div class="header-actions">
@@ -1237,10 +1455,11 @@ body.light .bottom-nav{
 
             <button
                 class="header-btn"
+                id="themeBtn"
                 onclick="toggleTheme()"
-                aria-label="الوضع الليلي">
+                aria-label="تبديل المظهر">
 
-                ◐
+                🌙
 
             </button>
 
@@ -1249,6 +1468,99 @@ body.light .bottom-nav{
     </div>
 
 </header>
+
+
+<!-- ======================================================
+     SIDE DRAWER
+======================================================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeDrawer()">
+</div>
+
+<aside
+    class="drawer"
+    id="drawer"
+    aria-hidden="true">
+
+    <div class="drawer-head">
+
+        <div class="drawer-title">
+            القائمة
+        </div>
+
+        <button
+            class="drawer-close"
+            onclick="closeDrawer()"
+            aria-label="إغلاق">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <ul class="drawer-list" id="drawerList">
+
+        <li>
+            <button class="drawer-link" data-target="home" onclick="goTo('home')">
+                <span class="drawer-icon">🏠</span>
+                الرئيسية
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="daily" onclick="goTo('daily')">
+                <span class="drawer-icon">🌤️</span>
+                دعاء اليوم
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="duas" onclick="goTo('duas')">
+                <span class="drawer-icon">🤲</span>
+                الأدعية
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="azkar" onclick="goTo('azkar')">
+                <span class="drawer-icon">📿</span>
+                الأذكار
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="quran" onclick="goTo('quran')">
+                <span class="drawer-icon">📖</span>
+                القرآن الكريم
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="tasbeeh" onclick="goTo('tasbeeh')">
+                <span class="drawer-icon">🔢</span>
+                عداد التسبيح
+            </button>
+        </li>
+
+        <li>
+            <button class="drawer-link" data-target="about" onclick="goTo('about')">
+                <span class="drawer-icon">🕊️</span>
+                عن والدي
+            </button>
+        </li>
+
+    </ul>
+
+    <div class="drawer-foot">
+        صدقة جارية عن صالح الفهري رحمه الله<br>
+        اللهم اغفر له وارحمه
+    </div>
+
+</aside>
 
 
 <main>
@@ -1288,7 +1600,7 @@ body.light .bottom-nav{
 
 
         <h2>
-            رحمه الله
+            رحمه الله رحمة واسعة
         </h2>
 
 
@@ -1297,9 +1609,14 @@ body.light .bottom-nav{
             هذا الموقع صدقة جارية عن والدنا العزيز،
             نسأل الله أن يرحمه ويغفر له،
             وأن يجعل ما فيه من ذكر ودعاء وقرآن
-            في ميزان حسناته.
+            في ميزان حسناته إلى يوم الدين.
 
         </p>
+
+
+        <div class="hero-divider">
+            ﷽
+        </div>
 
 
         <div class="hero-dua">
@@ -1616,11 +1933,10 @@ body.light .bottom-nav{
             📖
         </div>
 
-        <p class="hero-dua"
-           style="font-size:24px">
+        <p class="quran-verse">
 
-            ﴿إِنَّ هَٰذَا الْقُرْآنَ
-            يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
+            ﴿إِنَّ هَٰذَا الْقُرْآنَ
+            يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
 
         </p>
 
@@ -1687,7 +2003,7 @@ body.light .bottom-nav{
                 class="counter-button"
                 onclick="increaseCounter()">
 
-                سَبِّح
+                سَبِّح
 
             </button>
 
@@ -1980,39 +2296,26 @@ duas.forEach((dua,index)=>{
 
     card.className="dua-card";
 
-    card.innerHTML=`
+    const number = document.createElement("div");
+    number.className = "dua-number";
+    number.textContent = "دعاء " + (index + 1);
 
-        <div class="dua-number">
-            دعاء ${index + 1}
-        </div>
+    const text = document.createElement("div");
+    text.className = "dua-text";
+    text.textContent = dua;
 
-        <div class="dua-text">
-            ${dua}
-        </div>
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "copy";
+    copyBtn.textContent = "📋 نسخ الدعاء";
+    copyBtn.addEventListener("click", ()=>copyText(dua));
 
-        <button
-            class="copy"
-            onclick="copyText('${escapeQuotes(dua)}')">
-
-            📋 نسخ الدعاء
-
-        </button>
-
-    `;
+    card.appendChild(number);
+    card.appendChild(text);
+    card.appendChild(copyBtn);
 
     duaGrid.appendChild(card);
 
 });
-
-
-function escapeQuotes(text){
-
-    return text
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/"/g,'&quot;');
-
-}
 
 
 /* =========================================================
@@ -2217,11 +2520,23 @@ function duaAfterTasbeeh(){
    THEME
 ========================================================= */
 
+const themeBtn =
+    document.getElementById("themeBtn");
+
+
+function updateThemeIcon(){
+
+    themeBtn.textContent =
+        document.body.classList.contains("light")
+            ? "☀️"
+            : "🌙";
+
+}
+
+
 function toggleTheme(){
 
-    document.body.classList.toggle(
-        "light"
-    );
+    document.body.classList.toggle("light");
 
     localStorage.setItem(
         "salehTheme",
@@ -2231,16 +2546,55 @@ function toggleTheme(){
             : "dark"
     );
 
+    updateThemeIcon();
+
 }
 
 
 if(
-    localStorage.getItem(
-        "salehTheme"
-    )==="light"
+    localStorage.getItem("salehTheme")==="light"
 ){
 
     document.body.classList.add("light");
+
+}
+
+updateThemeIcon();
+
+
+/* =========================================================
+   SIDE DRAWER
+========================================================= */
+
+const drawer =
+    document.getElementById("drawer");
+
+const overlay =
+    document.getElementById("overlay");
+
+
+function openDrawer(){
+
+    drawer.classList.add("open");
+
+    overlay.classList.add("show");
+
+    drawer.setAttribute("aria-hidden","false");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeDrawer(){
+
+    drawer.classList.remove("open");
+
+    overlay.classList.remove("show");
+
+    drawer.setAttribute("aria-hidden","true");
+
+    document.body.style.overflow="";
 
 }
 
@@ -2250,6 +2604,8 @@ if(
 ========================================================= */
 
 function goTo(id){
+
+    closeDrawer();
 
     const element =
         document.getElementById(id);
@@ -2277,22 +2633,29 @@ function goTo(id){
 
 
 /* =========================================================
-   ACTIVE NAV
+   ACTIVE NAV (bottom nav + drawer)
 ========================================================= */
 
 const sections =
     [
         "home",
+        "daily",
         "duas",
         "azkar",
+        "quran",
         "tasbeeh",
         "about"
     ];
 
 
-const navItems =
+const bottomItems =
     document.querySelectorAll(
         ".bottom-item"
+    );
+
+const drawerLinks =
+    document.querySelectorAll(
+        ".drawer-link"
     );
 
 
@@ -2307,7 +2670,20 @@ const observer =
                     entry.isIntersecting
                 ){
 
-                    navItems.forEach(item=>{
+                    bottomItems.forEach(item=>{
+
+                        item.classList.toggle(
+
+                            "active",
+
+                            item.dataset.target
+                            ===entry.target.id
+
+                        );
+
+                    });
+
+                    drawerLinks.forEach(item=>{
 
                         item.classList.toggle(
 
@@ -2420,4 +2796,3 @@ showDua();
 
 </body>
 </html>
-```
