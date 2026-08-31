@@ -3,850 +3,1924 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071a16">
-<meta name="description" content="صدقة جارية ودعاء للمرحوم صالح الفهري رحمه الله">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071b17">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description"
+content="صدقة جارية عن صالح الفهري رحمه الله - أدعية وأذكار وقرآن">
+
 <title>صالح الفهري رحمه الله</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
-:root{
-  --bg:#061814;
-  --bg2:#0b241e;
-  --card:rgba(255,255,255,.065);
-  --card-hover:rgba(255,255,255,.105);
-  --gold:#d8b66b;
-  --gold2:#f1dda4;
-  --text:#f8f5ec;
-  --muted:#b7c5bf;
-  --border:rgba(255,255,255,.12);
-  --green:#26765d;
-  --shadow:0 20px 60px rgba(0,0,0,.30);
-}
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:"Cairo",sans-serif;
-  background:
-    radial-gradient(circle at 15% 10%,rgba(216,182,107,.12),transparent 28%),
-    radial-gradient(circle at 85% 30%,rgba(38,118,93,.18),transparent 32%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.9;
-  min-height:100vh;
-  transition:.3s;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:#071b17;
+    color:#f8f5eb;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    padding-bottom:82px;
+
+    transition:
+        background .3s,
+        color .3s;
+}
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#071b17;
+    --bg2:#0b2620;
+
+    --card:#0d2d25;
+    --card2:#11372d;
+
+    --gold:#d8b56a;
+    --gold-light:#f0daa0;
+
+    --text:#f8f5eb;
+    --muted:#aebeb7;
+
+    --border:rgba(255,255,255,.09);
+
+    --green:#246b55;
+
+    --danger:#b96b6b;
+
+    --shadow:
+        0 12px 35px rgba(0,0,0,.22);
 }
 
 body.light{
-  --bg:#f5f1e7;
-  --bg2:#fff;
-  --card:rgba(255,255,255,.78);
-  --card-hover:#fff;
-  --text:#17241e;
-  --muted:#65736c;
-  --border:rgba(0,0,0,.08);
+
+    --bg:#f5f1e7;
+    --bg2:#ffffff;
+
+    --card:#ffffff;
+    --card2:#f1ede2;
+
+    --gold:#9d762b;
+    --gold-light:#8a6827;
+
+    --text:#18251f;
+    --muted:#68766f;
+
+    --border:rgba(0,0,0,.08);
+
+    --green:#286f58;
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    background:var(--bg);
 }
 
-header{
-  position:fixed;
-  top:0;
-  right:0;
-  left:0;
-  z-index:1000;
-  background:rgba(6,24,20,.78);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    position:fixed;
+
+    top:0;
+    right:0;
+    left:0;
+
+    height:64px;
+
+    z-index:1000;
+
+    background:rgba(7,27,23,.82);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
 }
 
-body.light header{
-  background:rgba(245,241,231,.85);
+body.light .header{
+    background:rgba(255,255,255,.86);
 }
 
-.navbar{
-  max-width:1200px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.header-inner{
+
+    max-width:1100px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+        0 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
 }
 
 .logo{
-  font-family:"Amiri",serif;
-  font-size:25px;
-  color:var(--gold2);
-  font-weight:bold;
+
+    font-family:Georgia,serif;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    color:var(--gold-light);
+
+    white-space:nowrap;
 }
 
-nav{
-  display:flex;
-  align-items:center;
-  gap:5px;
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
 }
 
-nav a,
-.nav-btn{
-  color:var(--text);
-  text-decoration:none;
-  background:none;
-  border:0;
-  font-family:inherit;
-  padding:8px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:14px;
+.header-btn{
+
+    width:39px;
+    height:39px;
+
+    border-radius:50%;
+
+    border:
+        1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-size:17px;
 }
 
-nav a:hover,
-.nav-btn:hover{
-  background:var(--card);
-  color:var(--gold2);
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding-top:64px;
 }
 
-.menu-btn{
-  display:none;
-}
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  min-height:100vh;
-  padding:130px 20px 70px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+
+    min-height:
+        calc(100vh - 64px);
+
+    min-height:
+        calc(100svh - 64px);
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        55px 20px 50px;
+}
+
+.hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.glow{
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+        rgba(216,181,106,.08);
+
+    filter:blur(35px);
+}
+
+.glow.one{
+    top:-100px;
+    left:-80px;
+}
+
+.glow.two{
+    bottom:-130px;
+    right:-90px;
+
+    background:
+        rgba(36,107,85,.12);
 }
 
 .stars{
-  position:absolute;
-  inset:0;
-  opacity:.45;
-  background-image:
-    radial-gradient(circle,#fff 1px,transparent 1px),
-    radial-gradient(circle,#d8b66b 1px,transparent 1px);
-  background-size:90px 90px,145px 145px;
-  background-position:10px 20px,50px 80px;
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.4;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        90px 90px;
+
+    background-position:
+        20px 15px;
 }
 
 .moon{
-  position:absolute;
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  background:var(--gold2);
-  left:10%;
-  top:16%;
-  box-shadow:0 0 90px rgba(241,221,164,.15);
+
+    position:absolute;
+
+    width:125px;
+    height:125px;
+
+    border-radius:50%;
+
+    background:
+        var(--gold-light);
+
+    top:11%;
+    left:7%;
+
+    box-shadow:
+        0 0 80px rgba(240,218,160,.14);
 }
 
 .moon:after{
-  content:"";
-  position:absolute;
-  width:158px;
-  height:158px;
-  border-radius:50%;
-  background:var(--bg);
-  top:-10px;
-  left:38px;
+
+    content:"";
+
+    position:absolute;
+
+    width:116px;
+    height:116px;
+
+    border-radius:50%;
+
+    background:var(--bg);
+
+    top:-8px;
+    left:28px;
 }
 
 .hero-content{
-  max-width:850px;
-  position:relative;
-  z-index:2;
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    max-width:760px;
 }
 
-.badge{
-  display:inline-block;
-  padding:6px 18px;
-  border-radius:50px;
-  border:1px solid rgba(216,182,107,.35);
-  background:rgba(216,182,107,.06);
-  color:var(--gold2);
-  margin-bottom:20px;
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+        7px 15px;
+
+    border:
+        1px solid rgba(216,181,106,.25);
+
+    border-radius:100px;
+
+    background:
+        rgba(216,181,106,.055);
+
+    color:var(--gold-light);
+
+    font-size:13px;
+
+    margin-bottom:20px;
 }
 
 .hero h1{
-  font-family:"Amiri",serif;
-  color:var(--gold2);
-  font-size:clamp(55px,9vw,105px);
-  line-height:1.1;
+
+    font-family:Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:
+        clamp(48px,14vw,92px);
+
+    line-height:1.1;
+
+    margin-bottom:4px;
 }
 
 .hero h2{
-  font-family:"Amiri",serif;
-  font-size:38px;
-  font-weight:400;
-  margin-top:8px;
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(25px,7vw,40px);
+
+    font-weight:400;
+
+    margin-bottom:17px;
 }
 
-.hero-description{
-  max-width:680px;
-  margin:20px auto;
-  color:var(--muted);
-  font-size:17px;
+.hero-text{
+
+    color:var(--muted);
+
+    max-width:620px;
+
+    margin:auto;
+
+    font-size:15px;
+
+    line-height:2;
 }
 
-.main-dua{
-  max-width:800px;
-  margin:30px auto;
-  padding:25px;
-  font-family:"Amiri",serif;
-  color:var(--gold2);
-  font-size:30px;
-  line-height:2.1;
+.hero-dua{
+
+    font-family:Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:
+        clamp(21px,5.5vw,30px);
+
+    line-height:2;
+
+    padding:
+        22px 7px;
+
+    max-width:760px;
+
+    margin:auto;
 }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+.hero-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
 }
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .btn{
-  border:1px solid rgba(216,182,107,.4);
-  background:linear-gradient(135deg,#c5a15b,#edd590);
-  color:#182018;
-  padding:12px 25px;
-  border-radius:14px;
-  text-decoration:none;
-  font-family:inherit;
-  font-weight:800;
-  cursor:pointer;
-  transition:.25s;
+
+    min-height:47px;
+
+    padding:
+        10px 21px;
+
+    border-radius:14px;
+
+    border:
+        1px solid rgba(216,181,106,.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            #c39d51,
+            #eed58e
+        );
+
+    color:#172119;
+
+    font-weight:800;
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    transition:.2s;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(216,182,107,.18);
+.btn:active{
+    transform:scale(.97);
 }
 
 .btn.secondary{
-  background:var(--card);
-  color:var(--text);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border-color:var(--border);
 }
 
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:90px 20px;
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+
+    padding:
+        70px 17px 20px;
+}
+
+.section-header{
+
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:.3px;
+
+    margin-bottom:4px;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:42px;
+
+    font-family:Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:
+        clamp(31px,8vw,43px);
+
+    line-height:1.4;
 }
 
-.section-title small{
-  color:var(--gold);
-  font-weight:bold;
+.section-description{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-top:6px;
 }
 
-.section-title h2{
-  font-family:"Amiri",serif;
-  color:var(--gold2);
-  font-size:43px;
+/* =========================================================
+   DUA RANDOM CARD
+========================================================= */
+
+.feature-dua{
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,181,106,.10),
+            rgba(36,107,85,.10)
+        );
+
+    border:
+        1px solid rgba(216,181,106,.20);
+
+    border-radius:25px;
+
+    padding:
+        25px 19px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    box-shadow:var(--shadow);
 }
 
-.section-title p{
-  color:var(--muted);
+.feature-dua-icon{
+
+    font-size:35px;
+
+    margin-bottom:10px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+.feature-dua-text{
+
+    font-family:Georgia,serif;
+
+    color:var(--gold-light);
+
+    font-size:22px;
+
+    line-height:2;
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:26px;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(15px);
-  transition:.25s;
+.feature-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:18px;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  background:var(--card-hover);
+.small-btn{
+
+    min-height:40px;
+
+    padding:
+        8px 14px;
+
+    border-radius:11px;
+
+    border:
+        1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-family:inherit;
 }
 
-.card-icon{
-  font-size:30px;
+/* =========================================================
+   DUA GRID
+========================================================= */
+
+.dua-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
 }
 
-.card h3{
-  color:var(--gold2);
-  margin:8px 0;
+.dua-card{
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:19px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
 }
 
-.dua{
-  font-family:"Amiri",serif;
-  font-size:25px;
-  line-height:2.1;
+.dua-card:active{
+    transform:scale(.985);
 }
 
-.copy-btn{
-  margin-top:16px;
-  border:1px solid var(--border);
-  background:transparent;
-  color:var(--gold2);
-  padding:7px 13px;
-  border-radius:9px;
-  cursor:pointer;
-  font-family:inherit;
+.dua-number{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
 }
 
-.copy-btn:hover{
-  background:var(--card);
+.dua-text{
+
+    font-family:Georgia,serif;
+
+    font-size:21px;
+
+    line-height:2;
+
+    color:var(--text);
 }
 
-.azkar{
-  max-width:900px;
-  margin:auto;
+.copy{
+
+    margin-top:13px;
+
+    border:
+        1px solid var(--border);
+
+    background:transparent;
+
+    color:var(--gold-light);
+
+    border-radius:9px;
+
+    padding:
+        6px 11px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+}
+
+/* =========================================================
+   AZKAR
+========================================================= */
+
+.azkar-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
 }
 
 .zikr{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:22px;
-  margin-bottom:14px;
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:19px;
+
+    box-shadow:var(--shadow);
+}
+
+.zikr-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:7px;
 }
 
 .zikr-title{
-  color:var(--gold2);
-  font-weight:800;
+
+    color:var(--gold-light);
+
+    font-weight:800;
+
+    font-size:14px;
+}
+
+.zikr-count{
+
+    color:var(--muted);
+
+    font-size:11px;
 }
 
 .zikr-text{
-  font-family:"Amiri",serif;
-  font-size:26px;
-  line-height:2;
+
+    font-family:Georgia,serif;
+
+    font-size:22px;
+
+    line-height:2;
+
+    color:var(--text);
 }
 
-.counter-box{
-  max-width:520px;
-  margin:auto;
-  text-align:center;
+/* =========================================================
+   TASBEEH
+========================================================= */
+
+.tasbeeh-container{
+
+    display:flex;
+
+    justify-content:center;
 }
 
-.counter-number{
-  color:var(--gold2);
-  font-size:90px;
-  font-weight:800;
+.tasbeeh-card{
+
+    width:100%;
+
+    max-width:560px;
+
+    text-align:center;
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:28px;
+
+    padding:30px 20px;
+
+    box-shadow:var(--shadow);
 }
 
-.counter-circle{
-  width:185px;
-  height:185px;
-  border-radius:50%;
-  border:8px solid rgba(216,182,107,.4);
-  background:var(--card);
-  color:var(--gold2);
-  font-family:inherit;
-  font-size:30px;
-  cursor:pointer;
-  transition:.12s;
+.tasbeeh-label{
+
+    color:var(--muted);
+
+    font-size:14px;
 }
 
-.counter-circle:active{
-  transform:scale(.94);
+.counter{
+
+    color:var(--gold-light);
+
+    font-size:75px;
+
+    line-height:1.2;
+
+    font-weight:800;
+
+    margin:
+        12px 0 18px;
 }
 
-.counter-actions{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:20px;
+.counter-button{
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:
+        8px solid rgba(216,181,106,.27);
+
+    background:
+        radial-gradient(
+            circle,
+            var(--card2),
+            var(--card)
+        );
+
+    color:var(--gold-light);
+
+    font-family:inherit;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.22);
+
+    transition:.1s;
 }
 
-.about{
-  max-width:820px;
-  margin:auto;
+.counter-button:active{
+
+    transform:scale(.93);
 }
 
-.about-box{
-  text-align:center;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:25px;
-  padding:38px;
-  box-shadow:var(--shadow);
+.tasbeeh-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:22px;
 }
 
-.about-box p{
-  color:var(--muted);
-  font-size:18px;
-  margin-bottom:14px;
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-card{
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:
+        28px 21px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
 }
 
-.about-box strong{
-  color:var(--gold2);
+.about-symbol{
+
+    width:72px;
+    height:72px;
+
+    margin:
+        0 auto 18px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(216,181,106,.09);
+
+    border:
+        1px solid rgba(216,181,106,.18);
+
+    font-size:32px;
 }
 
-.quote{
-  font-family:"Amiri",serif;
-  color:var(--gold2)!important;
-  font-size:27px!important;
+.about-card p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:2.1;
+
+    margin-bottom:13px;
 }
+
+.about-card strong{
+
+    color:var(--gold-light);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-  border-top:1px solid var(--border);
-  padding:45px 20px;
-  text-align:center;
-  color:var(--muted);
+
+    text-align:center;
+
+    padding:
+        55px 20px 30px;
+
+    color:var(--muted);
+
+    font-size:13px;
 }
 
-footer strong{
-  color:var(--gold2);
+.footer-name{
+
+    font-family:Georgia,serif;
+
+    font-size:23px;
+
+    color:var(--gold-light);
+
+    margin-bottom:8px;
 }
 
-.top{
-  position:fixed;
-  bottom:25px;
-  left:25px;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:1px solid var(--border);
-  background:var(--card);
-  color:var(--gold2);
-  cursor:pointer;
-  display:none;
-  z-index:50;
-  font-size:20px;
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    right:0;
+    left:0;
+
+    height:72px;
+
+    padding:
+        6px 8px
+        env(safe-area-inset-bottom);
+
+    z-index:1500;
+
+    background:
+        rgba(7,27,23,.92);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-top:
+        1px solid var(--border);
+
+    display:flex;
+
+    justify-content:center;
 }
+
+body.light .bottom-nav{
+
+    background:
+        rgba(255,255,255,.93);
+}
+
+.bottom-inner{
+
+    width:100%;
+
+    max-width:650px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:2px;
+}
+
+.bottom-item{
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:2px;
+
+    font-size:10px;
+
+    border-radius:12px;
+}
+
+.bottom-icon{
+
+    font-size:20px;
+
+    line-height:1;
+}
+
+.bottom-item.active{
+
+    color:var(--gold-light);
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 .toast{
-  position:fixed;
-  bottom:25px;
-  right:50%;
-  transform:translateX(50%) translateY(100px);
-  background:#102d25;
-  color:#fff;
-  padding:12px 22px;
-  border-radius:50px;
-  border:1px solid rgba(216,182,107,.3);
-  z-index:2000;
-  transition:.3s;
-  opacity:0;
+
+    position:fixed;
+
+    z-index:3000;
+
+    right:50%;
+
+    bottom:92px;
+
+    transform:
+        translateX(50%)
+        translateY(20px);
+
+    width:
+        min(90%,430px);
+
+    background:#102f27;
+
+    color:white;
+
+    border:
+        1px solid rgba(216,181,106,.25);
+
+    border-radius:15px;
+
+    padding:
+        12px 16px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.25s;
+
+    box-shadow:var(--shadow);
 }
 
 .toast.show{
-  transform:translateX(50%) translateY(0);
-  opacity:1;
+
+    opacity:1;
+
+    transform:
+        translateX(50%)
+        translateY(0);
 }
 
-@media(max-width:800px){
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-  nav a{
-    display:none;
-  }
+@media(max-width:700px){
 
-  .menu-btn{
-    display:block;
-  }
+    .dua-grid{
 
-  nav.open{
-    position:absolute;
-    top:65px;
-    right:15px;
-    left:15px;
-    padding:10px;
-    background:var(--bg2);
-    border:1px solid var(--border);
-    border-radius:15px;
-    display:flex;
-    flex-direction:column;
-  }
+        grid-template-columns:1fr;
 
-  nav.open a{
-    display:block;
-    width:100%;
-    text-align:center;
-  }
+    }
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+    .dua-card{
 
-  .moon{
-    width:90px;
-    height:90px;
-    left:-25px;
-    top:12%;
-  }
+        padding:18px;
 
-  .moon:after{
-    width:84px;
-    height:84px;
-    left:25px;
-  }
+    }
 
-  .hero h2{
-    font-size:30px;
-  }
+    .dua-text{
 
-  .main-dua{
-    font-size:25px;
-  }
+        font-size:20px;
+
+    }
+
+    .section{
+
+        padding-top:62px;
+
+    }
+
 }
+
+@media(min-width:701px){
+
+    body{
+
+        padding-bottom:0;
+
+    }
+
+    .bottom-nav{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:360px){
+
+    .logo{
+
+        font-size:16px;
+
+    }
+
+    .hero{
+
+        padding-left:15px;
+        padding-right:15px;
+
+    }
+
+    .hero-dua{
+
+        font-size:20px;
+
+    }
+
+    .counter-button{
+
+        width:160px;
+        height:160px;
+
+    }
+
+}
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *{
+        transition:none!important;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="navbar">
 
-    <div class="logo">
-      صالح الفهري رحمه الله
+<!-- ======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+            صالح الفهري رحمه الله
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                class="header-btn"
+                onclick="shareSite()"
+                aria-label="مشاركة">
+
+                ↗
+
+            </button>
+
+            <button
+                class="header-btn"
+                onclick="toggleTheme()"
+                aria-label="الوضع الليلي">
+
+                ◐
+
+            </button>
+
+        </div>
+
     </div>
 
-    <nav id="nav">
-
-      <a href="#home">الرئيسية</a>
-      <a href="#duas">الأدعية</a>
-      <a href="#azkar">الأذكار</a>
-      <a href="#quran">القرآن</a>
-      <a href="#tasbeeh">التسبيح</a>
-      <a href="#about">عن الوالد</a>
-
-      <button class="nav-btn" onclick="toggleTheme()">
-        ☀️
-      </button>
-
-    </nav>
-
-    <button class="nav-btn menu-btn" onclick="toggleMenu()">
-      ☰
-    </button>
-
-  </div>
 </header>
 
 
-<section class="hero" id="home">
+<main>
 
-  <div class="stars"></div>
-  <div class="moon"></div>
 
-  <div class="hero-content">
+<!-- ======================================================
+     HERO
+======================================================= -->
 
-    <div class="badge">
-      رحمه الله وأسكنه فسيح جناته
+<section
+    class="hero"
+    id="home">
+
+    <div class="hero-bg">
+
+        <div class="stars"></div>
+
+        <div class="glow one"></div>
+
+        <div class="glow two"></div>
+
+        <div class="moon"></div>
+
     </div>
 
-    <h1>
-      صالح الفهري
-    </h1>
 
-    <h2>
-      رحمه الله
-    </h2>
+    <div class="hero-content">
 
-    <p class="hero-description">
-      موقع صدقة جارية لوالدي العزيز،
-      نسأل الله أن يجعل ما يُقرأ هنا من قرآن وذكر ودعاء
-      نورًا ورحمةً له.
-    </p>
+        <div class="hero-badge">
+            🕊️ صدقة جارية
+        </div>
 
-    <div class="main-dua">
-      اللهم اغفر لوالدي صالح الفهري وارحمه،
-      وعافه واعفُ عنه، وأكرم نزله، ووسع مدخله،
-      واجعل قبره روضةً من رياض الجنة.
+
+        <h1>
+            صالح الفهري
+        </h1>
+
+
+        <h2>
+            رحمه الله
+        </h2>
+
+
+        <p class="hero-text">
+
+            هذا الموقع صدقة جارية عن والدنا العزيز،
+            نسأل الله أن يرحمه ويغفر له،
+            وأن يجعل ما فيه من ذكر ودعاء وقرآن
+            في ميزان حسناته.
+
+        </p>
+
+
+        <div class="hero-dua">
+
+            اللهم اغفر لوالدي صالح الفهري وارحمه،
+            وعافه واعفُ عنه، وأكرم نزله،
+            ووسع مدخله، واجعل قبره روضةً
+            من رياض الجنة.
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#duas"
+                class="btn">
+
+                🤲 ادعُ له
+
+            </a>
+
+
+            <a
+                href="#azkar"
+                class="btn secondary">
+
+                📿 اذكر الله
+
+            </a>
+
+        </div>
+
     </div>
-
-    <div class="buttons">
-      <a href="#duas" class="btn">
-        🤲 ادعُ له
-      </a>
-
-      <a href="#azkar" class="btn secondary">
-        📿 الأذكار
-      </a>
-    </div>
-
-  </div>
 
 </section>
 
 
-<section class="container" id="duas">
+<!-- ======================================================
+     DAILY DUA
+======================================================= -->
 
-  <div class="section-title">
-    <small>الدعاء للميت</small>
+<section
+    class="section"
+    id="daily">
 
-    <h2>
-      أدعية لصالح الفهري رحمه الله
-    </h2>
+    <div class="section-header">
 
-    <p>
-      اللهم اجعل له من كل دعاء رحمة ومن كل استغفار مغفرة.
-    </p>
-  </div>
+        <div class="section-label">
+            دعاء اليوم
+        </div>
 
-  <div class="grid" id="duaList"></div>
+        <h2 class="section-title">
+            ادعُ لصالح الفهري
+        </h2>
+
+        <p class="section-description">
+            اختر دعاءً واهدِه لوالدك رحمه الله.
+        </p>
+
+    </div>
+
+
+    <div class="feature-dua">
+
+        <div class="feature-dua-icon">
+            🤲
+        </div>
+
+        <div
+            class="feature-dua-text"
+            id="dailyDua">
+
+            اللهم اغفر لوالدي صالح الفهري وارحمه
+            رحمةً واسعة.
+
+        </div>
+
+
+        <div class="feature-actions">
+
+            <button
+                class="small-btn"
+                onclick="newDua()">
+
+                🔄 دعاء آخر
+
+            </button>
+
+
+            <button
+                class="small-btn"
+                onclick="copyDailyDua()">
+
+                📋 نسخ
+
+            </button>
+
+
+            <button
+                class="small-btn"
+                onclick="shareDailyDua()">
+
+                ↗ مشاركة
+
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<section class="container" id="azkar">
+<!-- ======================================================
+     DUAS
+======================================================= -->
 
-  <div class="section-title">
+<section
+    class="section"
+    id="duas">
 
-    <small>ذكر الله</small>
+    <div class="section-header">
 
-    <h2>
-      الأذكار
-    </h2>
+        <div class="section-label">
+            الدعاء للميت
+        </div>
 
-    <p>
-      اذكر الله وادعُ لوالدك صالح الفهري رحمه الله.
-    </p>
+        <h2 class="section-title">
+            أدعية لوالدي
+        </h2>
 
-  </div>
+        <p class="section-description">
+            رحم الله صالح الفهري وجميع موتى المسلمين.
+        </p>
 
-  <div class="azkar">
-
-    <div class="zikr">
-      <div class="zikr-title">
-        الاستغفار
-      </div>
-
-      <div class="zikr-text">
-        أستغفر الله وأتوب إليه
-      </div>
     </div>
 
-    <div class="zikr">
-      <div class="zikr-title">
-        التسبيح
-      </div>
 
-      <div class="zikr-text">
-        سبحان الله، والحمد لله، والله أكبر
-      </div>
+    <div
+        class="dua-grid"
+        id="duaGrid">
     </div>
-
-    <div class="zikr">
-      <div class="zikr-title">
-        التهليل
-      </div>
-
-      <div class="zikr-text">
-        لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير
-      </div>
-    </div>
-
-    <div class="zikr">
-      <div class="zikr-title">
-        الصلاة على النبي ﷺ
-      </div>
-
-      <div class="zikr-text">
-        اللهم صل وسلم وبارك على نبينا محمد ﷺ
-      </div>
-    </div>
-
-    <div class="zikr">
-      <div class="zikr-title">
-        دعاء للوالدين
-      </div>
-
-      <div class="zikr-text">
-        رب اغفر لي ولوالدي وللمؤمنين يوم يقوم الحساب
-      </div>
-    </div>
-
-  </div>
 
 </section>
 
 
-<section class="container" id="quran">
+<!-- ======================================================
+     AZKAR
+======================================================= -->
 
-  <div class="section-title">
+<section
+    class="section"
+    id="azkar">
 
-    <small>كتاب الله</small>
+    <div class="section-header">
 
-    <h2>
-      القرآن الكريم
-    </h2>
+        <div class="section-label">
+            ذكر الله
+        </div>
 
-    <p>
-      اقرأ ما تيسر من كتاب الله، وادعُ لصالح الفهري رحمه الله.
-    </p>
+        <h2 class="section-title">
+            أذكار
+        </h2>
 
-  </div>
+        <p class="section-description">
+            أكثر من ذكر الله وادعُ لوالدك رحمه الله.
+        </p>
 
-  <div class="about-box">
-
-    <div style="font-size:65px">
-      📖
     </div>
 
-    <p class="quote">
-      ﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
-    </p>
 
-    <a
-      href="https://quran.com"
-      target="_blank"
-      rel="noopener"
-      class="btn">
-      قراءة القرآن
-    </a>
+    <div class="azkar-list">
 
-  </div>
+
+        <div class="zikr">
+
+            <div class="zikr-top">
+
+                <div class="zikr-title">
+                    الاستغفار
+                </div>
+
+                <div class="zikr-count">
+                    ذكر
+                </div>
+
+            </div>
+
+            <div class="zikr-text">
+                أستغفر الله وأتوب إليه
+            </div>
+
+        </div>
+
+
+        <div class="zikr">
+
+            <div class="zikr-top">
+
+                <div class="zikr-title">
+                    التسبيح والتحميد والتكبير
+                </div>
+
+                <div class="zikr-count">
+                    ذكر
+                </div>
+
+            </div>
+
+            <div class="zikr-text">
+                سبحان الله، والحمد لله، والله أكبر
+            </div>
+
+        </div>
+
+
+        <div class="zikr">
+
+            <div class="zikr-top">
+
+                <div class="zikr-title">
+                    التهليل
+                </div>
+
+                <div class="zikr-count">
+                    ذكر
+                </div>
+
+            </div>
+
+            <div class="zikr-text">
+                لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير
+            </div>
+
+        </div>
+
+
+        <div class="zikr">
+
+            <div class="zikr-top">
+
+                <div class="zikr-title">
+                    الصلاة على النبي ﷺ
+                </div>
+
+                <div class="zikr-count">
+                    ذكر
+                </div>
+
+            </div>
+
+            <div class="zikr-text">
+                اللهم صل وسلم وبارك على نبينا محمد ﷺ
+            </div>
+
+        </div>
+
+
+        <div class="zikr">
+
+            <div class="zikr-top">
+
+                <div class="zikr-title">
+                    دعاء للوالدين
+                </div>
+
+                <div class="zikr-count">
+                    القرآن
+                </div>
+
+            </div>
+
+            <div class="zikr-text">
+                رب اغفر لي ولوالدي وللمؤمنين يوم يقوم الحساب
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<section class="container" id="tasbeeh">
+<!-- ======================================================
+     QURAN
+======================================================= -->
 
-  <div class="section-title">
+<section
+    class="section"
+    id="quran">
 
-    <small>ذكر الله</small>
+    <div class="section-header">
 
-    <h2>
-      عداد التسبيح
-    </h2>
+        <div class="section-label">
+            كتاب الله
+        </div>
 
-    <p>
-      سبّح الله واحتسب الأجر، ثم ادعُ لصالح الفهري رحمه الله.
-    </p>
+        <h2 class="section-title">
+            القرآن الكريم
+        </h2>
 
-  </div>
-
-  <div class="counter-box">
-
-    <div class="counter-number" id="counter">
-      0
-    </div>
-
-    <button class="counter-circle" onclick="increaseCounter()">
-      سَبِّح
-    </button>
-
-    <div class="counter-actions">
-
-      <button class="btn secondary" onclick="resetCounter()">
-        إعادة العداد
-      </button>
-
-      <button class="btn" onclick="randomDua()">
-        🤲 دعاء له
-      </button>
+        <p class="section-description">
+            اقرأ ما تيسر من القرآن وادعُ لصالح الفهري رحمه الله.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="about-card">
+
+        <div class="about-symbol">
+            📖
+        </div>
+
+        <p class="hero-dua"
+           style="font-size:24px">
+
+            ﴿إِنَّ هَٰذَا الْقُرْآنَ
+            يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾
+
+        </p>
+
+
+        <a
+            href="https://quran.com"
+            target="_blank"
+            rel="noopener"
+            class="btn">
+
+            📖 قراءة القرآن
+
+        </a>
+
+    </div>
 
 </section>
 
 
-<section class="container" id="about">
+<!-- ======================================================
+     TASBEEH
+======================================================= -->
 
-  <div class="about">
+<section
+    class="section"
+    id="tasbeeh">
 
-    <div class="section-title">
+    <div class="section-header">
 
-      <small>رحمة ووفاء</small>
+        <div class="section-label">
+            ذكر الله
+        </div>
 
-      <h2>
-        عن والدنا صالح الفهري
-      </h2>
+        <h2 class="section-title">
+            عداد التسبيح
+        </h2>
 
-    </div>
-
-    <div class="about-box">
-
-      <p>
-        هذا الموقع صدقة جارية عن والدنا العزيز
-        <strong>صالح الفهري</strong>
-        رحمه الله.
-      </p>
-
-      <p>
-        اللهم اغفر له وارحمه، وعافه واعفُ عنه،
-        وأكرم نزله ووسع مدخله، واغسله بالماء والثلج والبرد،
-        ونقه من الخطايا كما نقيت الثوب الأبيض من الدنس.
-      </p>
-
-      <p>
-        اللهم اجعل قبره نورًا وضياءً، وافتح له بابًا إلى الجنة،
-        واجعل القرآن أنيسه، وارفع درجته في المهديين.
-      </p>
-
-      <p class="quote">
-        نسألكم الدعاء له بالرحمة والمغفرة.
-      </p>
+        <p class="section-description">
+            اضغط على الزر للتسبيح.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="tasbeeh-container">
+
+        <div class="tasbeeh-card">
+
+            <div class="tasbeeh-label">
+                عدد التسبيحات
+            </div>
+
+
+            <div
+                class="counter"
+                id="counter">
+
+                0
+
+            </div>
+
+
+            <button
+                class="counter-button"
+                onclick="increaseCounter()">
+
+                سَبِّح
+
+            </button>
+
+
+            <div class="tasbeeh-actions">
+
+                <button
+                    class="btn secondary"
+                    onclick="resetCounter()">
+
+                    إعادة
+
+                </button>
+
+
+                <button
+                    class="btn"
+                    onclick="duaAfterTasbeeh()">
+
+                    🤲 ادعُ له
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+<!-- ======================================================
+     ABOUT
+======================================================= -->
+
+<section
+    class="section"
+    id="about">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            وفاء وذكرى
+        </div>
+
+        <h2 class="section-title">
+            صالح الفهري رحمه الله
+        </h2>
+
+    </div>
+
+
+    <div class="about-card">
+
+        <div class="about-symbol">
+            🕊️
+        </div>
+
+
+        <p>
+
+            هذا الموقع صدقة جارية عن والدنا العزيز
+            <strong>
+                صالح الفهري
+            </strong>
+            رحمه الله.
+
+        </p>
+
+
+        <p>
+
+            اللهم اغفر له وارحمه،
+            وعافه واعفُ عنه،
+            وأكرم نزله ووسع مدخله،
+            واغسله بالماء والثلج والبرد.
+
+        </p>
+
+
+        <p>
+
+            اللهم اجعل قبره نورًا وضياءً،
+            وافتح له بابًا إلى الجنة،
+            وارفع درجته في المهديين.
+
+        </p>
+
+
+        <p>
+
+            نسألكم الدعاء له بالرحمة والمغفرة.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
-  <div style="font-size:32px;margin-bottom:10px">
-    ☪
-  </div>
+    <div class="footer-name">
+        صالح الفهري رحمه الله
+    </div>
 
-  <p>
-    اللهم اغفر لوالدي
-    <strong>صالح الفهري</strong>
-    وارحمه رحمة واسعة.
-  </p>
+    <p>
+        اللهم اغفر لوالدي وارحمه.
+    </p>
 
-  <p style="margin-top:8px">
-    صدقة جارية — رحم الله موتانا وموتى المسلمين.
-  </p>
+    <p>
+        صدقة جارية — رحم الله موتانا وموتى المسلمين.
+    </p>
 
 </footer>
 
 
-<button
-  class="top"
-  id="topButton"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  ↑
-</button>
+<!-- ======================================================
+     BOTTOM NAV
+======================================================= -->
+
+<nav class="bottom-nav">
+
+    <div class="bottom-inner">
+
+        <button
+            class="bottom-item active"
+            data-target="home"
+            onclick="goTo('home')">
+
+            <span class="bottom-icon">
+                🏠
+            </span>
+
+            الرئيسية
+
+        </button>
 
 
-<div class="toast" id="toast">
-  تم نسخ الدعاء 🤲
+        <button
+            class="bottom-item"
+            data-target="duas"
+            onclick="goTo('duas')">
+
+            <span class="bottom-icon">
+                🤲
+            </span>
+
+            الأدعية
+
+        </button>
+
+
+        <button
+            class="bottom-item"
+            data-target="azkar"
+            onclick="goTo('azkar')">
+
+            <span class="bottom-icon">
+                📿
+            </span>
+
+            الأذكار
+
+        </button>
+
+
+        <button
+            class="bottom-item"
+            data-target="tasbeeh"
+            onclick="goTo('tasbeeh')">
+
+            <span class="bottom-icon">
+                🔢
+            </span>
+
+            التسبيح
+
+        </button>
+
+
+        <button
+            class="bottom-item"
+            data-target="about"
+            onclick="goTo('about')">
+
+            <span class="bottom-icon">
+                🕊️
+            </span>
+
+            عنه
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- ======================================================
+     TOAST
+======================================================= -->
+
+<div
+    class="toast"
+    id="toast">
+
+    تم نسخ الدعاء 🤲
+
 </div>
 
 
 <script>
 
+/* =========================================================
+   DUAS
+========================================================= */
+
 const duas = [
 
 "اللهم اغفر لوالدي صالح الفهري وارحمه رحمةً واسعة، وأسكنه فسيح جناتك.",
 
-"اللهم اعفُ عن صالح الفهري، واغفر له، وارحمه، وأكرم نزله، ووسع مدخله.",
+"اللهم اعفُ عن صالح الفهري واغفر له وارحمه، وأكرم نزله ووسع مدخله.",
 
-"اللهم اغفر له وارحمه، وعافه واعفُ عنه، وأكرم نزله، ووسع مدخله.",
+"اللهم اغفر له وارحمه، وعافه واعفُ عنه، وأكرم نزله ووسع مدخله.",
 
 "اللهم اجعل قبر صالح الفهري روضةً من رياض الجنة، ولا تجعله حفرةً من حفر النار.",
 
@@ -880,8 +1954,6 @@ const duas = [
 
 "اللهم ارزقه الفردوس الأعلى من الجنة، واجعله من أهل النعيم المقيم.",
 
-"اللهم اجعل عمله الصالح شفيعًا له، وارفع درجته في جنات النعيم.",
-
 "اللهم اجعل ذكراه طيبة، وأثره باقيًا في الخير، وارفع منزلته عندك.",
 
 "اللهم لا تحرمنا أجره ولا تفتنا بعده، واغفر لنا وله.",
@@ -893,155 +1965,456 @@ const duas = [
 ];
 
 
-const duaList = document.getElementById("duaList");
+/* =========================================================
+   CREATE DUA CARDS
+========================================================= */
+
+const duaGrid =
+    document.getElementById("duaGrid");
+
 
 duas.forEach((dua,index)=>{
 
-  const card=document.createElement("div");
+    const card =
+        document.createElement("article");
 
-  card.className="card";
+    card.className="dua-card";
 
-  card.innerHTML=`
-    <div class="card-icon">🤲</div>
-    <div class="dua">${dua}</div>
+    card.innerHTML=`
 
-    <button
-      class="copy-btn"
-      onclick="copyDua(${index})">
-      نسخ الدعاء
-    </button>
-  `;
+        <div class="dua-number">
+            دعاء ${index + 1}
+        </div>
 
-  duaList.appendChild(card);
+        <div class="dua-text">
+            ${dua}
+        </div>
+
+        <button
+            class="copy"
+            onclick="copyText('${escapeQuotes(dua)}')">
+
+            📋 نسخ الدعاء
+
+        </button>
+
+    `;
+
+    duaGrid.appendChild(card);
 
 });
 
 
-function copyDua(index){
+function escapeQuotes(text){
 
-  navigator.clipboard.writeText(duas[index]);
-
-  showToast("تم نسخ الدعاء 🤲");
+    return text
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'&quot;');
 
 }
+
+
+/* =========================================================
+   DAILY DUA
+========================================================= */
+
+let currentDua=0;
+
+
+const dailyDua =
+    document.getElementById("dailyDua");
+
+
+function showDua(){
+
+    dailyDua.textContent =
+        duas[currentDua];
+
+}
+
+
+function newDua(){
+
+    let next;
+
+    do{
+
+        next =
+            Math.floor(
+                Math.random()*duas.length
+            );
+
+    }while(
+        next===currentDua &&
+        duas.length>1
+    );
+
+    currentDua=next;
+
+    showDua();
+
+}
+
+
+function copyDailyDua(){
+
+    copyText(
+        dailyDua.textContent
+    );
+
+}
+
+
+function shareDailyDua(){
+
+    const text =
+        dailyDua.textContent
+        +
+        "\n\nرحم الله صالح الفهري.";
+
+    shareText(text);
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+function copyText(text){
+
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
+
+        navigator.clipboard
+            .writeText(text)
+            .then(()=>{
+                showToast(
+                    "تم نسخ الدعاء 🤲"
+                );
+            });
+
+    }else{
+
+        const area =
+            document.createElement("textarea");
+
+        area.value=text;
+
+        document.body.appendChild(area);
+
+        area.select();
+
+        document.execCommand("copy");
+
+        area.remove();
+
+        showToast(
+            "تم نسخ الدعاء 🤲"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
 
 
 function showToast(message){
 
-  const toast=document.getElementById("toast");
+    const toast =
+        document.getElementById("toast");
 
-  toast.textContent=message;
+    toast.textContent=message;
 
-  toast.classList.add("show");
+    toast.classList.add("show");
 
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
+    clearTimeout(toastTimer);
+
+    toastTimer=setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2600);
 
 }
 
 
-let count=Number(
-  localStorage.getItem("salehTasbeeh") || 0
-);
+/* =========================================================
+   TASBEEH
+========================================================= */
 
-const counter=document.getElementById("counter");
+let count =
+    Number(
+        localStorage.getItem(
+            "salehTasbeeh"
+        ) || 0
+    );
+
+
+const counter =
+    document.getElementById("counter");
+
 
 function renderCounter(){
 
-  counter.textContent=count;
+    counter.textContent =
+        count.toLocaleString("ar");
 
 }
+
 
 function increaseCounter(){
 
-  count++;
+    count++;
 
-  localStorage.setItem("salehTasbeeh",count);
+    localStorage.setItem(
+        "salehTasbeeh",
+        count
+    );
 
-  renderCounter();
+    renderCounter();
 
 }
+
 
 function resetCounter(){
 
-  count=0;
+    count=0;
 
-  localStorage.setItem("salehTasbeeh",0);
+    localStorage.setItem(
+        "salehTasbeeh",
+        "0"
+    );
 
-  renderCounter();
+    renderCounter();
 
-}
-
-
-function randomDua(){
-
-  const dua=
-    duas[Math.floor(Math.random()*duas.length)];
-
-  showToast(dua);
+    showToast(
+        "تمت إعادة العداد"
+    );
 
 }
 
 
-renderCounter();
+function duaAfterTasbeeh(){
 
+    newDua();
+
+    goTo("daily");
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
 
 function toggleTheme(){
 
-  document.body.classList.toggle("light");
+    document.body.classList.toggle(
+        "light"
+    );
 
-  localStorage.setItem(
-    "salehTheme",
-    document.body.classList.contains("light")
-      ? "light"
-      : "dark"
-  );
+    localStorage.setItem(
+        "salehTheme",
+
+        document.body.classList.contains("light")
+            ? "light"
+            : "dark"
+    );
 
 }
 
 
 if(
-  localStorage.getItem("salehTheme")==="light"
+    localStorage.getItem(
+        "salehTheme"
+    )==="light"
 ){
-  document.body.classList.add("light");
-}
 
-
-function toggleMenu(){
-
-  document
-    .getElementById("nav")
-    .classList.toggle("open");
+    document.body.classList.add("light");
 
 }
 
 
-document.querySelectorAll("nav a")
-.forEach(link=>{
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-  link.addEventListener("click",()=>{
+function goTo(id){
 
-    document
-      .getElementById("nav")
-      .classList.remove("open");
+    const element =
+        document.getElementById(id);
 
-  });
+    if(!element)return;
+
+    const headerOffset=60;
+
+    const y =
+        element.getBoundingClientRect().top
+        +
+        window.scrollY
+        -
+        headerOffset;
+
+    window.scrollTo({
+
+        top:y,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+const sections =
+    [
+        "home",
+        "duas",
+        "azkar",
+        "tasbeeh",
+        "about"
+    ];
+
+
+const navItems =
+    document.querySelectorAll(
+        ".bottom-item"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    navItems.forEach(item=>{
+
+                        item.classList.toggle(
+
+                            "active",
+
+                            item.dataset.target
+                            ===entry.target.id
+
+                        );
+
+                    });
+
+                }
+
+            });
+
+        },
+
+        {
+            rootMargin:
+                "-25% 0px -60% 0px",
+
+            threshold:0
+        }
+
+    );
+
+
+sections.forEach(id=>{
+
+    const section =
+        document.getElementById(id);
+
+    if(section)
+        observer.observe(section);
 
 });
 
 
-window.addEventListener("scroll",()=>{
+/* =========================================================
+   SHARE SITE
+========================================================= */
 
-  const button=
-    document.getElementById("topButton");
+async function shareSite(){
 
-  button.style.display=
-    window.scrollY>500
-      ? "block"
-      : "none";
+    const text =
+        "صدقة جارية عن صالح الفهري رحمه الله 🤲";
 
-});
+    shareText(text);
+
+}
+
+
+async function shareText(text){
+
+    const data={
+
+        title:
+            "صالح الفهري رحمه الله",
+
+        text:text,
+
+        url:
+            window.location.href
+
+    };
+
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share(
+                data
+            );
+
+        }catch(error){}
+
+    }else{
+
+        copyText(
+            text
+            +
+            "\n"
+            +
+            window.location.href
+        );
+
+        showToast(
+            "تم نسخ رابط الموقع"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderCounter();
+
+showDua();
+
 
 </script>
 
